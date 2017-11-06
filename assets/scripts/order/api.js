@@ -13,14 +13,13 @@ const getOrders = () => {
   })
 }
 
-const createOrder = (data) => {
+const createOrder = () => {
   return $.ajax({
     url: config.apiOrigin + '/orders',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data
+    }
   })
 }
 

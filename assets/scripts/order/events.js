@@ -3,7 +3,7 @@
 const api = require('./api')
 const ui = require('./ui')
 
-const getAllOrders = (event) => {
+const onGetAllOrders = (event) => {
   // console.log('Get products event invoked')
   event.preventDefault()
   // console.log('Target is', event.target)
@@ -12,9 +12,19 @@ const getAllOrders = (event) => {
     .catch(ui.getOrdersFailure)
 }
 
+const onCreateOrder = (event) => {
+  // console.log('Get products event invoked')
+  event.preventDefault()
+  // console.log('Target is', event.target)
+  api.createOrder()
+    .then(ui.createOrderSuccess)
+    .catch(ui.createOrderFailure)
+}
+
 const addHandlers = () => {
-  // need to add jquery for get products to display all
-  $('#getOrders').on('click', getAllOrders)
+  $('#getOrders').on('click', onGetAllOrders)
+  $('#createOrder').on('click', onCreateOrder)
+  // need to add jquery for create order
 }
 
 module.exports = {
