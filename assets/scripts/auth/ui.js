@@ -1,3 +1,7 @@
+'use strict'
+
+const store = require('../store')
+
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully! Please sign in.')
   $('#signupModal').modal('hide')
@@ -9,7 +13,20 @@ const signUpFailure = function (error) {
   console.error(error)
 }
 
+const signInSuccess = function (response) {
+  $('#message').text('You\'re now signed in.')
+  store.user = response.user
+  $('#loginModal').modal('hide')
+  console.log(store.user)
+}
+
+const signInFailure = function () {
+  $('#login-message').text('Error on sign in. Please try again.')
+}
+
 module.exports = {
   signUpSuccess,
-  signUpFailure
+  signUpFailure,
+  signInSuccess,
+  signInFailure
 }
