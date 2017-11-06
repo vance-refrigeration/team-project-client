@@ -17,6 +17,8 @@ const signInSuccess = function (response) {
   store.user = response.user
   $('#loginModal').modal('hide')
   $('#login')[0].reset()
+  $('.display-when-logged-in').show()
+  $('.hide-when-logged-in').hide()
   // console.log(store.user)
 }
 
@@ -27,11 +29,12 @@ const signInFailure = function () {
 const signOutSuccess = function () {
   $('#message').text('You\'re now signed out.')
   store.user = null
+  $('.hide-when-logged-in').show()
+  $('.display-when-logged-in').hide()
 }
 
-const signOutFailure = function (error) {
+const signOutFailure = function () {
   $('#message').text('Error on sign out.')
-  console.log('signOut failure ran. error is :', error)
 }
 
 const changePasswordSuccess = function () {
