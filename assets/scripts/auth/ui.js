@@ -5,28 +5,52 @@ const store = require('../store')
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully! Please sign in.')
   $('#signupModal').modal('hide')
-  // console.log('yoooooooo')
+  $('#sign-up')[0].reset()
 }
 
-const signUpFailure = function (error) {
+const signUpFailure = function () {
   $('#signup-message').text('Error on sign up. Please try again.')
-  console.error(error)
 }
 
 const signInSuccess = function (response) {
   $('#message').text('You\'re now signed in.')
   store.user = response.user
   $('#loginModal').modal('hide')
-  console.log(store.user)
+  $('#login')[0].reset()
+  // console.log(store.user)
 }
 
 const signInFailure = function () {
   $('#login-message').text('Error on sign in. Please try again.')
 }
 
+const signOutSuccess = function () {
+  $('#message').text('You\'re now signed out.')
+  store.user = null
+}
+
+const signOutFailure = function (error) {
+  $('#message').text('Error on sign out.')
+  console.log('signOut failure ran. error is :', error)
+}
+
+const changePasswordSuccess = function () {
+  $('#message').text('Changed password successfully.')
+  $('#passwordModal').modal('hide')
+  $('#change-password')[0].reset()
+}
+
+const changePasswordFailure = function () {
+  $('#password-message').text('There was an error. Please try again.')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
-  signInFailure
+  signInFailure,
+  signOutFailure,
+  signOutSuccess,
+  changePasswordSuccess,
+  changePasswordFailure
 }
