@@ -8,8 +8,12 @@ const ui = require('./ui')
 const onAddToCart = (event) => {
   event.preventDefault()
   const button = event.target
-  const data = $(button).attr('data-id')
-  console.log(data)
+  const name = $(button).attr('data-name')
+  const description = $(button).attr('data-description')
+  const price = $(button).attr('data-price')
+  const id = $(button).attr('data-id')
+  const product = {name: name, description: description, price: price, id: id}
+  const data = {product}
   api.addToCart(data)
     .then(ui.addToCartSuccess)
     .catch(ui.addToCartFailure)
@@ -22,7 +26,7 @@ const populateProducts = () => {
 }
 
 const addHandlers = () => {
-  $('#add-to-cart').on('submit', onAddToCart)
+  $('.content').on('click', '#add-to-cart', onAddToCart)
 }
 
 module.exports = {

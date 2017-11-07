@@ -4,7 +4,6 @@ const config = require('../config')
 const store = require('../store')
 
 const addToCart = (data) => {
-  console.log('addToCart', data)
   return $.ajax({
     url: config.apiOrigin + '/add-product/' + store.user.id,
     method: 'PATCH',
