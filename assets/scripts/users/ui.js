@@ -21,9 +21,18 @@ const addToCartFailure = () => {
   $('#message').text('There was an error, please try again')
 }
 
+const calculateTotal = () => {
+  let cartTotal = 0
+  for (let i = 0; i < store.user.cart.length; i++) {
+    cartTotal += parseInt(store.user.cart[i].price)
+  }
+  $('#total-price').text(cartTotal)
+}
+
 const viewCartSuccess = () => {
   const cartHtml = cartTemplate({ products: store.user.cart })
   $('.cart-content').append(cartHtml)
+  calculateTotal()
 }
 
 const removeProductSuccess = (data) => {
@@ -38,5 +47,6 @@ module.exports = {
   addToCartSuccess,
   addToCartFailure,
   viewCartSuccess,
+  calculateTotal,
   removeProductSuccess
 }

@@ -31,6 +31,7 @@ const signOutSuccess = function () {
   store.user = null
   $('.hide-when-logged-in').show()
   $('.display-when-logged-in').hide()
+  $('.cart-content').empty()
 }
 
 const signOutFailure = function () {
