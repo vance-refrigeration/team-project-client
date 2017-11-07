@@ -31,7 +31,7 @@
               <li class="display-when-logged-in"><a href="#" id="sign-out" class="signOutLink">Sign Out</a></li>
               <li class="hide-when-logged-in"><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
               <li class="hide-when-logged-in"><a href="#" data-toggle="modal" data-target="#signupModal">Sign Up</a></li>
-              <li class="display-when-logged-in"><a href="#" id="orders" class="ordersLink">My Orders</a></li>
+              <li class="display-when-logged-in"><a href="#" id="orders" class="ordersLink" data-target="#getOrdersModal" data-toggle="modal">My Orders</a></li>
               <li class="display-when-logged-in"><a href="#" id="cart" class="cartLink ">Shopping Cart</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -109,5 +109,48 @@
           </div>
         </div>
        </div>
+<!-- Start of Get Orders modal -->
+      <!-- Confirmation box for viewing orders start -->
+      <div class="modal fade" id="getOrdersModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h3 class="modal-title" id="exampleModalLabel">Are you sure you want to view your old orders?</h3>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+             <div class="modal-body">
+               <form class="" id="getOrdersForm">
+                 <button type="submit" class="btn btn-primary">Yes</button>
+               </form>
+             </div>
+             <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+             </div>
+           </div>
+         </div>
+       </div>
+       <!-- Confirmation box for viewing orders end -->
+       <!-- Old orders message modal start -->
+       <div class="modal fade" id="getOrdersMessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h3 class="modal-title" id="analyzeWorkoutsMessage">Your past orders</h3>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+             <div class="modal-body pre-scrollable" id="getOrdersBody">
+             </div>
+             <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+             </div>
+           </div>
+         </div>
+       </div>
+       <!-- Old orders message modal end -->
+       <!-- End of Get Orders modal -->
     </body>
 </html>
