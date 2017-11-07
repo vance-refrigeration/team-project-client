@@ -2,6 +2,7 @@
 
 const store = require('../store')
 const productsTemplate = require('../templates/products.handlebars')
+const cartTemplate = require('../templates/cart.handlebars')
 
 const populateSuccess = (data) => {
   const productsHtml = productsTemplate({ products: data.products })
@@ -20,9 +21,15 @@ const addToCartFailure = () => {
   $('#message').text('There was an error, please try again')
 }
 
+const viewCartSuccess = () => {
+  const cartHtml = cartTemplate({ products: store.user.cart })
+  $('.cart-content').append(cartHtml)
+}
+
 module.exports = {
   populateSuccess,
   populateFailure,
   addToCartSuccess,
-  addToCartFailure
+  addToCartFailure,
+  viewCartSuccess
 }

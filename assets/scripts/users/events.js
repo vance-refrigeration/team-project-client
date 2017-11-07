@@ -26,7 +26,8 @@ const populateProducts = () => {
 }
 
 const viewCart = () => {
-
+  ui.viewCartSuccess()
+    .catch(ui.viewCartFailure)
 }
 
 const addHandlers = () => {
