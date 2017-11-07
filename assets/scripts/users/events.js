@@ -32,6 +32,7 @@ const onRemoveProduct = (event) => {
     .then(() => {
       $(row).empty()
     })
+    .then(ui.calculateTotal)
     .catch(ui.removeProductFailure)
 }
 
