@@ -2,12 +2,6 @@
 
 const store = require('../store')
 
-const signUpSuccess = function (data) {
-  $('#message').text('Signed up successfully! Please sign in.')
-  $('#signupModal').modal('hide')
-  $('#sign-up')[0].reset()
-}
-
 const signUpFailure = function () {
   $('#signup-message').text('Error on sign up. Please try again.')
 }
@@ -19,7 +13,8 @@ const signInSuccess = function (response) {
   $('#login')[0].reset()
   $('.display-when-logged-in').show()
   $('.hide-when-logged-in').hide()
-  // console.log(store.user)
+  $('#signupModal').modal('hide')
+  $('#sign-up')[0].reset()
 }
 
 const signInFailure = function () {
@@ -49,7 +44,6 @@ const changePasswordFailure = function () {
 }
 
 module.exports = {
-  signUpSuccess,
   signUpFailure,
   signInSuccess,
   signInFailure,
