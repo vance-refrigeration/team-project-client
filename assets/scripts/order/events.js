@@ -14,9 +14,9 @@ const onGetAllOrders = (event) => {
     .catch(ui.getOrdersFailure)
 }
 
-const onCreateOrder = (event) => {
+const onCreateOrder = () => {
   // console.log('Get products event invoked')
-  event.preventDefault()
+  // event.preventDefault()
   // console.log('Target is', event.target)
   api.createOrder()
     .then(ui.createOrderSuccess)
@@ -37,7 +37,9 @@ const stripeHandler = StripeCheckout.configure({
       console.log('Close button behavior here')
     } else {
       $('#cartModal').modal('hide')
-      console.log('Success!!')
+      // Need to call the create order here
+      console.log('Success!! Invoking create order')
+      onCreateOrder()
     }
   }
 })
