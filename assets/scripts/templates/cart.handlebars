@@ -1,8 +1,22 @@
-{{#each products as |product|}}
-  <h3>{{product.name}}</h3>
-    <ul>
-      <li>{{product.description}}</li>
-      <li>{{product.price}}</li>
-    </ul>
-</div>
-{{/each}}
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each products as |product|}}
+      <tr data-id="{{product.id}}">
+        <td class = "product-name">{{product.name}}</td>
+        <td class = "product-description">{{product.description}}</td>
+        <td class = "product-price">{{product.price}}</td>
+        <td>
+          <button data-id="{{product.id}}" class="removeProduct btn btn-danger">Remove From Cart</button>
+        <td>
+      </tr>
+    {{/each}}
+</tbody>
+<table>
