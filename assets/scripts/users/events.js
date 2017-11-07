@@ -25,9 +25,13 @@ const onRemoveProduct = (event) => {
   const id = $(button).attr('data-id')
   const product = {id: id}
   const data = {product}
-  console.log(data)
+  const row = button.parentElement.parentElement
+  console.log(row)
   api.removeFromCart(data)
     .then(ui.removeProductSuccess)
+    .then(() => {
+      $(row).empty()
+    })
     .catch(ui.removeProductFailure)
 }
 
@@ -41,10 +45,15 @@ const viewCart = () => {
   ui.viewCartSuccess()
 }
 
+const clearCart = () => {
+  $('.cart-content').empty()
+}
+
 const addHandlers = () => {
   $('.content').on('click', '#add-to-cart', onAddToCart)
   $('.cart-content').on('click', '.removeProduct', onRemoveProduct)
   $('#cart').on('click', viewCart)
+  $('#cartModal').on('hidden.bs.modal', clearCart)
 }
 
 module.exports = {
