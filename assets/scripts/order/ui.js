@@ -19,7 +19,7 @@ const createOrderSuccess = function (data) {
   console.log('create order success ', data)
   // Clear the user cart
   store.user.cart = []
-  $('.cart-content').empty()
+  // $('.cart-content').empty()
 }
 
 const createOrderFailure = function (error) {

@@ -3,6 +3,7 @@
 const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
+const userEvents = require('../users/events')
 
 const onGetAllOrders = (event) => {
   // console.log('Get products event invoked')
@@ -40,6 +41,7 @@ const stripeHandler = StripeCheckout.configure({
       // Need to call the create order here
       console.log('Success!! Invoking create order')
       onCreateOrder()
+      userEvents.emptyUserCart()
     }
   }
 })

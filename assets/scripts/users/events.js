@@ -42,6 +42,10 @@ const populateProducts = () => {
     .catch(ui.populateFailure)
 }
 
+const emptyUserCart = () => {
+  api.emptyUserCart()
+}
+
 const viewCart = () => {
   ui.viewCartSuccess()
 }
@@ -85,5 +89,6 @@ const addHandlers = () => {
 module.exports = {
   addHandlers,
   populateProducts,
-  viewCart
+  viewCart,
+  emptyUserCart
 }

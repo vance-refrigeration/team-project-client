@@ -32,8 +32,19 @@ const populate = () => {
   })
 }
 
+const emptyUserCart = () => {
+  return $.ajax({
+    url: config.apiOrigin + '/empty-cart/' + store.user.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   addToCart,
   populate,
-  removeFromCart
+  removeFromCart,
+  emptyUserCart
 }
