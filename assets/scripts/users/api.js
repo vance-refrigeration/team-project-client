@@ -14,6 +14,17 @@ const addToCart = (data) => {
   })
 }
 
+const removeFromCart = (data) => {
+  return $.ajax({
+    url: config.apiOrigin + '/remove-product/' + store.user.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
 const populate = () => {
   return $.ajax({
     url: config.apiOrigin + '/products/',
@@ -23,5 +34,6 @@ const populate = () => {
 
 module.exports = {
   addToCart,
-  populate
+  populate,
+  removeFromCart
 }

@@ -26,10 +26,17 @@ const viewCartSuccess = () => {
   $('.cart-content').append(cartHtml)
 }
 
+const removeProductSuccess = (data) => {
+  $('#message').text('Item has been removed from your shopping cart')
+  store.user = data.user
+  console.log('store user is', store.user)
+}
+
 module.exports = {
   populateSuccess,
   populateFailure,
   addToCartSuccess,
   addToCartFailure,
-  viewCartSuccess
+  viewCartSuccess,
+  removeProductSuccess
 }
