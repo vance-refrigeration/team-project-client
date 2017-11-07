@@ -1,10 +1,16 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import url('//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css');
 
 body {
   padding-top: 65px;
 
   .display-when-logged-in {
     display: none;
+  }
+  .message {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 10px;
   }
 }
