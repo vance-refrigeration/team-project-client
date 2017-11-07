@@ -35,11 +35,10 @@ const stripeHandler = StripeCheckout.configure({
   },
   closed: function () {
     if (!tokenTriggered) {
-      console.log('Close button behavior here')
+      // console.log('Close button behavior here')
     } else {
       $('#cartModal').modal('hide')
-      // Need to call the create order here
-      console.log('Success!! Invoking create order')
+      $('#message').text('Order placed successfully!')
       onCreateOrder()
       userEvents.emptyUserCart()
     }
