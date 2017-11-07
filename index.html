@@ -33,6 +33,9 @@
               <li class="hide-when-logged-in"><a href="#" data-toggle="modal" data-target="#signupModal">Sign Up</a></li>
               <li class="display-when-logged-in"><a href="#" id="orders" class="ordersLink" data-target="#getOrdersModal" data-toggle="modal">My Orders</a></li>
               <li class="display-when-logged-in"><a href="#" id="cart" class="cartLink ">Shopping Cart</a></li>
+              <li class="display-when-logged-in"><a href="#" id="orders" class="ordersLink">My Orders</a></li>
+              <li class="display-when-logged-in"><a href="#" data-toggle="modal" data-target="#cartModal" id="cart" class="cartLink ">Shopping Cart</a></li>
+<!-- >>>>>>> Shopping Cart Modal -->
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -109,6 +112,7 @@
           </div>
         </div>
        </div>
+
 <!-- Start of Get Orders modal -->
       <!-- Confirmation box for viewing orders start -->
       <div class="modal fade" id="getOrdersModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -152,5 +156,17 @@
        </div>
        <!-- Old orders message modal end -->
        <!-- End of Get Orders modal -->
+       <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog">
+          <div class="modal-content">
+               <div class="modal-header">
+                <h2 class="modal-title">Shopping Cart</h2>
+                <div class="cart-content"></div>
+               </div>
+               <button type="submit" name="submit" class="btn btn-primary">Checkout</button>
+          </div>
+        </div>
+       </div>
+
     </body>
 </html>

@@ -19,17 +19,36 @@ const onAddToCart = (event) => {
     .catch(ui.addToCartFailure)
 }
 
+const onRemoveProduct = (event) => {
+  event.preventDefault()
+  const button = event.target
+  const id = $(button).attr('data-id')
+  const product = {id: id}
+  const data = {product}
+  console.log(data)
+  api.removeFromCart(data)
+    .then(ui.removeProductSuccess)
+    .catch(ui.removeProductFailure)
+}
+
 const populateProducts = () => {
   api.populate()
     .then(ui.populateSuccess)
     .catch(ui.populateFailure)
 }
 
+const viewCart = () => {
+  ui.viewCartSuccess()
+}
+
 const addHandlers = () => {
   $('.content').on('click', '#add-to-cart', onAddToCart)
+  $('.cart-content').on('click', '.removeProduct', onRemoveProduct)
+  $('#cart').on('click', viewCart)
 }
 
 module.exports = {
   addHandlers,
-  populateProducts
+  populateProducts,
+  viewCart
 }
