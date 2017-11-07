@@ -25,11 +25,17 @@ const populateProducts = () => {
     .catch(ui.populateFailure)
 }
 
+const viewCart = () => {
+
+}
+
 const addHandlers = () => {
   $('.content').on('click', '#add-to-cart', onAddToCart)
+  $('#cart').on('click', viewCart)
 }
 
 module.exports = {
   addHandlers,
-  populateProducts
+  populateProducts,
+  viewCart
 }

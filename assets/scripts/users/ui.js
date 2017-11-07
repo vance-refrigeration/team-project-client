@@ -1,6 +1,6 @@
 'use strict'
 
-// const store = require('../store')
+const store = require('../store')
 const productsTemplate = require('../templates/products.handlebars')
 
 const populateSuccess = (data) => {
@@ -11,8 +11,10 @@ const populateFailure = () => {
   $('#message').text('There was an error, please try again')
 }
 
-const addToCartSuccess = () => {
+const addToCartSuccess = (data) => {
   $('#message').text('Item has been added to your shopping cart')
+  store.user = data.user
+  console.log('store user is', store.user)
 }
 const addToCartFailure = () => {
   $('#message').text('There was an error, please try again')
