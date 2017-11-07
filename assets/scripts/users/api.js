@@ -15,6 +15,14 @@ const addToCart = (data) => {
   })
 }
 
+const populate = () => {
+  return $.ajax({
+    url: config.apiOrigin + '/products/',
+    method: 'GET'
+  })
+}
+
 module.exports = {
-  addToCart
+  addToCart,
+  populate
 }
