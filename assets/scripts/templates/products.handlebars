@@ -4,8 +4,8 @@
   <div class="panel panel-default">
     <div class="panel-heading"><h3>{{product.name}}</h3></div>
     <div class="panel-body">
-        <p>{{product.description}}</p>
-        <p>{{product.price}}</p>
+        <p >Description: {{product.description}}</p>
+        <p><span class="price">Price: ${{product.price}}</span></p>
       <button data-id="{{product.id}}" data-name="{{product.name}}" data-description="{{product.description}}" data-price="{{product.price}}" class="btn btn-primary display-when-logged-in" id="add-to-cart">Add To Cart</button>
     </div>
   </div>
