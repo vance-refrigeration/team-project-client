@@ -1,0 +1,26 @@
+{{#if products}}
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each products as |product|}}
+      <tr data-id="{{product.id}}">
+        <td class = "product-name">{{product.name}}</td>
+        <td class = "product-description">{{product.description}}</td>
+        <td class = "product-price">{{product.price}}</td>
+        <td>
+          <button data-id="{{product.id}}" class="removeProduct btn btn-danger">Remove From Cart</button>
+        <td>
+      </tr>
+    {{/each}}
+</tbody>
+{{else}}
+  <p>You haven't added anything yet! Click on the product you would like to add to the cart.</p>
+{{/if}}
+<table>

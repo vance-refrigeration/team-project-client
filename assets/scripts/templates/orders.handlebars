@@ -1,0 +1,26 @@
+{{#if orders}}
+{{#each orders as |order|}}
+<h4>Order</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#order.orderItems}}
+    <tr>
+      <td>{{name}}</td>
+      <td>{{description}}</td>
+      <td>{{price}}</td>
+    </tr>
+    {{/order.orderItems}}
+  </tbody>
+  <table>
+{{/each}}
+{{else}}
+<p>You don't have any past orders yet.</p>
+{{/if}}
