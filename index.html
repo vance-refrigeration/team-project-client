@@ -162,7 +162,21 @@
                 <div class="cart-content">
                 </div>
                </div>
-               <button type="submit" name="submit" class="btn btn-primary">Checkout</button>
+               <form id="checkout-form">
+                 <input type="hidden" id="stripeToken" name="stripeToken"/>
+    <input type="hidden" id="stripeEmail" name="stripeEmail"/>
+                 <button type="submit" name="submit" class="btn btn-primary" id="checkout-button">Checkout</button>
+               </form>
+               <form action="/your-server-side-code" method="POST">
+                <script
+                  src="https://checkout.stripe.com/checkout.js"
+                  data-key="pk_test_n5itDkuM2xHubxhygUjisoph"
+                  data-amount="999"
+                  data-name="Demo Site"
+                  data-description="Widget"
+                  data-locale="auto">
+                </script>
+              </form>
           </div>
         </div>
        </div>

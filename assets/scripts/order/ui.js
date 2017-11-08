@@ -1,6 +1,7 @@
 'use strict'
 
 const ordersTemplate = require('../templates/orders.handlebars')
+const store = require('../store')
 
 const getOrdersSuccess = function (data) {
   console.log('got all orders data ', data)
@@ -16,6 +17,9 @@ const getOrdersFailure = function (error) {
 
 const createOrderSuccess = function (data) {
   console.log('create order success ', data)
+  // Clear the user cart
+  store.user.cart = []
+  // $('.cart-content').empty()
 }
 
 const createOrderFailure = function (error) {
