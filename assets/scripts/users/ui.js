@@ -15,7 +15,6 @@ const populateFailure = () => {
 const addToCartSuccess = (data) => {
   $('#message').text('Item has been added to your shopping cart')
   store.user = data.user
-  console.log('store user is', store.user)
 }
 const addToCartFailure = () => {
   $('#message').text('There was an error, please try again')
@@ -39,12 +38,17 @@ const viewCartSuccess = () => {
   const cartHtml = cartTemplate({ products: store.user.cart })
   $('.cart-content').append(cartHtml)
   calculateTotal()
+  if (store.user.cart.length > 0) {
+    $('.checkout-button').show()
+  }
 }
 
 const removeProductSuccess = (data) => {
   $('#message').text('Item has been removed from your shopping cart')
   store.user = data.user
-  console.log('store user is', store.user)
+  if (store.user.cart.length === 0) {
+    $('.checkout-button').hide()
+  }
 }
 
 module.exports = {
