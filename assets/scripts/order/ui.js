@@ -11,19 +11,15 @@ const getOrdersSuccess = function (data) {
   $('#getOrdersMessageModal').modal('show')
 }
 
-const getOrdersFailure = function (error) {
-  console.log('got order data error, error is ', error)
+const getOrdersFailure = function () {
 }
 
 const createOrderSuccess = function (data) {
-  console.log('create order success ', data)
-  // Clear the user cart
   store.user.cart = []
-  // $('.cart-content').empty()
+  $('.checkout-button').hide()
 }
 
-const createOrderFailure = function (error) {
-  console.log('create order error, error is ', error)
+const createOrderFailure = function () {
 }
 
 module.exports = {
