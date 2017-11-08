@@ -1,3 +1,4 @@
+{{#if products}}
 <table class="table">
   <thead>
     <tr>
@@ -19,4 +20,7 @@
       </tr>
     {{/each}}
 </tbody>
+{{else}}
+  <p>You haven't added anything yet! Click on the product you would like to add to the cart.</p>
+{{/if}}
 <table>
