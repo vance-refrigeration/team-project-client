@@ -41,6 +41,7 @@ const stripeHandler = StripeCheckout.configure({
       $('#message').text('Order placed successfully!')
       onCreateOrder()
       userEvents.emptyUserCart()
+      tokenTriggered = false
     }
   }
 })
