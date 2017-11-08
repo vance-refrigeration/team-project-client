@@ -26,7 +26,6 @@ const onRemoveProduct = (event) => {
   const product = {id: id}
   const data = {product}
   const row = button.parentElement.parentElement
-  // console.log(row)
   api.removeFromCart(data)
     .then(ui.removeProductSuccess)
     .then(() => {
@@ -74,6 +73,10 @@ const clearLoginMessage = () => {
   $('#login-message').text('')
 }
 
+const clearSignUpMessage = () => {
+  $('#signup-message').text('')
+}
+
 const addHandlers = () => {
   $('.content').on('click', '#add-to-cart', onAddToCart)
   $('.cart-content').on('click', '.removeProduct', onRemoveProduct)
@@ -84,6 +87,7 @@ const addHandlers = () => {
   $('#signupModal').on('hidden.bs.modal', clearSignUpForm)
   $('#passwordModal').on('hidden.bs.modal', clearPassForm)
   $('#passwordModal').on('show.bs.modal', clearPassMessage)
+  $('#signupModal').on('show.bs.modal', clearSignUpMessage)
 }
 
 module.exports = {
