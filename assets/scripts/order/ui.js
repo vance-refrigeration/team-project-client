@@ -4,7 +4,7 @@ const ordersTemplate = require('../templates/orders.handlebars')
 const store = require('../store')
 
 const getOrdersSuccess = function (data) {
-  console.log('got all orders data ', data)
+  // console.log('got all orders data ', data)
   $('#getOrdersModal').modal('hide')
   const oldOrdersHtml = ordersTemplate({ orders: data.orders })
   $('#getOrdersBody').append(oldOrdersHtml)

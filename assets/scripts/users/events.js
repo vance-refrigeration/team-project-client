@@ -26,7 +26,7 @@ const onRemoveProduct = (event) => {
   const product = {id: id}
   const data = {product}
   const row = button.parentElement.parentElement
-  console.log(row)
+  // console.log(row)
   api.removeFromCart(data)
     .then(ui.removeProductSuccess)
     .then(() => {
