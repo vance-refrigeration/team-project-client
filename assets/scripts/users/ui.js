@@ -13,8 +13,12 @@ const populateFailure = () => {
 }
 
 const addToCartSuccess = (data) => {
-  $('#message').text('Item has been added to your shopping cart')
   store.user = data.user
+  if (store.user.cart.length === 1) {
+    $('#message').text('Item added to cart.')
+  } else {
+    $('#message').text('Item added to cart. There are now ' + store.user.cart.length + ' items in your cart.')
+  }
 }
 const addToCartFailure = () => {
   $('#message').text('There was an error, please try again')
@@ -44,10 +48,14 @@ const viewCartSuccess = () => {
 }
 
 const removeProductSuccess = (data) => {
-  $('#message').text('Item has been removed from your shopping cart')
   store.user = data.user
   if (store.user.cart.length === 0) {
     $('.checkout-button').hide()
+    $('#message').text('Item removed from cart. Your cart is now empty.')
+  } else if (store.user.cart.length === 1) {
+    $('#message').text('Item removed from cart. There is now 1 item in your cart.')
+  } else {
+    $('#message').text('Item removed from cart. There are now ' + store.user.cart.length + ' items in your cart.')
   }
 }
 
