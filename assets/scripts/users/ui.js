@@ -27,6 +27,10 @@ const calculateTotal = () => {
     cartTotal += parseInt(store.user.cart[i].price)
   }
   $('#total-price').text(cartTotal)
+  // do not display cart-total <p> text if cartTotal = 0
+  if (cartTotal === 0) {
+    $('#cart-total').text('')
+  }
 }
 
 const viewCartSuccess = () => {
