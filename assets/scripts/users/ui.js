@@ -29,7 +29,9 @@ const calculateTotal = () => {
   $('#total-price').text(cartTotal)
   // do not display cart-total <p> text if cartTotal = 0
   if (cartTotal === 0) {
-    $('#cart-total').text('')
+    $('#cart-total').hide()
+  } else {
+    $('#cart-total').show()
   }
 }
 
